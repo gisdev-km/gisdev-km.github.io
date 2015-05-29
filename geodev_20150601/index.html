@@ -14,7 +14,7 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
-		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/league.css" id="theme">
 
 		<!-- Code syntax highlighting -->
@@ -60,9 +60,18 @@
 				<section>
 					<section>
 						<h2>What does that mean?</h2>
-						<p>
-							ArcGIS Online (AGO) is pretty awesome.<div class="fragment fade-in">But also pretty <span class="fragment highlight-red">simplified.</span></div>
-						</p>
+					</section>
+					<section>
+						ArcGIS Online (AGO) is pretty cool...
+					</section>
+					<section>
+						<h2>But it's also:</h2>
+					</section>
+					<section>
+						simplified
+					</section>
+					<section>
+						limited in data interactivity
 					</section>
 					<section>
 						<h1>Especially for us #geodevs</h1>
@@ -75,38 +84,35 @@
 				<!-- Example of nested vertical slides -->
 				<section>
 					<section>
-						<h2>The task at hand...</h2>
-						<ul>
-							<li class="fragment fade-in">Send some surveyors out into the field to find some monuments...</li>
-							<li class="fragment fade-in">And record a bunch of attributes...</li>
-							<li class="fragment fade-in">AND take pictures...</li>
-							<li class="fragment fade-in">AND get it onto the network before the next day...</li>
-							<li class="fragment fade-in">AND not screw it all up.</li>
-						</ul>
-						<div class="fragment fade-in" style="color: cyan">Sorry any surveyors</div>
+						<h2>The task at hand...</h2>						
+						<div class="fragment fade-in" style="color: cyan">Sorry, surveyors</div>
 					</section>
+					<section>Send some surveyors out into the field to find some monuments...</section>
+					<section>And record a bunch of attributes...</section>
+					<section>AND take pictures...</section>
+					<section>AND get it onto the network before the next day...</section>
+					<section>AND not screw it all up.</section>
+				</section>
+				<section>
 					<section>
 						<h2>The traditional surveyor method...</h2>
-						<ul>
-							<li class="fragment fade-in">Write some of it in their Chartwell waterproof Survey book</li>
-							<li class="fragment fade-in">Maybe fill out half the report sheet (and have it blow away)</li>
-							<li class="fragment fade-in">Accidently write down the wrong picture # for the wrong monuments</li>
-							<li class="fragment fade-in">Get fed up with trying to sync the photos because it's been a long day in the field</li>
-							<li class="fragment fade-in">Say 'screw it' and go home to have a beer</li>
-						</ul>
 					</section>
-					<section data-background="images/beer.jpg">
-						
-					</section>
+
+					<section>Write some of it in their Chartwell waterproof Survey book</section>
+					<section>Maybe fill out half the report sheet (and have it blow away)</section>
+					<section>Accidently write down the wrong picture # for the wrong monuments</section>
+					<section>Get fed up with trying to sync the photos because it's been a long day in the field</section>
+					<section>Say 'screw it' and go home to have a beer</section>
+					<section data-background="images/beer.jpg"></section>
+				</section>
+				<section>
 					<section>
 						<h2>The typical GIS way</h2>
-						<ul>
-							<li class="fragment fade-in">Load target monuments into ArcGIS Online</li>
-							<li class="fragment fade-in">Have surveyors use Collector app with offline editing</li>
-							<li class="fragment fade-in">On the commute back from the field, initiate sync with ArcGIS Online</li>
-							<li class="fragment fade-in">Create FileGDB export from AGO and process the data</li>
-						</ul>
 					</section>
+					<section>Load target monuments into ArcGIS Online</section>
+					<section>Have surveyors use Collector app with offline editing</section>
+					<section>On the commute back from the field, initiate sync with ArcGIS Online</section>
+					<section>Create FileGDB export from AGO and process the data</section>
 				</section>	
 
 				<section>
@@ -116,27 +122,26 @@
 
 					</p>
 				</section>
-
 				<section>
-					<h2>The pitfalls of the typical GIS way</h2>
-					<ul>
-						<li class="fragment fade-in">File GDB exports burn unnecessary AGO credits due to file storage</li>
-						<li class="fragment fade-in">Large GDB exports seem to take forever to create</li>
-						<li class="fragment fade-in">Processing attachments is a bit of a pain in the ass</li>
-						<li class="fragment fade-in">New locations require either...
+					<section>
+						<h2>The pitfalls of the typical GIS way</h2>
+					</section>
+				
+					<section>File GDB exports burn unnecessary AGO credits due to file storage</section>
+					<section>Large GDB exports seem to take forever to create</section>
+					<section>Processing attachments is a bit of a pain in the ass</section>
+					<section>
+						<h3>New locations require either...</h3>
 							<ul>
 								<li>Updating the local source feature class and republishing to AGO</li>
 								<li>
-									Creating a local copy, editing and syncing back with AGO
+									Creating a replica, editing and syncing back with AGO
 									<p>
 									<small><i>Which can also be super slow to create locally and can crash when syncing back with AGO when the data (attachments) start to grow</i></small>
 									</p>
 								</li>
 							</ul>
-						</li>
-					</ul>
-
-
+					</section>
 				</section>
 
 				<section>
@@ -144,48 +149,48 @@
 						<h1>The #geodev way</h1>
 					</section>
 					<section>
+						<h2>Super vague overview</h2>
+						<h4 class="fragment fade-in">(Psst... Use the AGO Rest Endpoints!)</h4>
+						<small style="color: cyan">Come talk to me for more in depth overview</small>
+					</section>
+					<section>
 						<h2>Wield Python like it's a web app!</h2>
 						<img src="images/JackNicholson.gif" style="border: 2px solid #fff;">
 						<h2>
 					</section>
+					<section>Upload new locations to AGO via an internal web form</section>
+					<section>Download new features locally and update existing attributes</section>
 					<section>
-						<h2>Super vague overview for AGO REST interactions</h2>
-						<ul>
-							<li class="fragment fade-in">Upload new locations via an internal web form</li>
-							<li class="fragment fade-in">Download new features and existing attributes</li>
-							<li class="fragment fade-in">
-								Download and insert attachments into GDB
-								<small><p class="fragment fade-in" style="font-style: italic">Even grabs missing photos taken at a later date</p></small>
-							</li>
-							<li class="fragment fade-in">Create PDF reports for survey deliverable</li>
-						</ul>
-						<p></p>
-						<div class="fragment fade-in">And the best part... <p class="fragment grow highlight-red">IT'S ALL AUTOMATED</p></div>
+						Download and insert attachments into GDB
+						<small><p class="fragment fade-in" style="font-style: italic">Even grabs missing photos taken at a later date</p></small>
+					</section>
+					<section>Create PDF reports for survey deliverables</section>
+					<section>
+						And the best part... <p class="fragment fade-in">it's <span class="fragment highlight-red">AUTOMATED</span> and runs within <span class="fragment highlight-red">seconds</span></p>
+					</section>
 					</section>
 				</section>
-
-				
+												
 
 				<section>
-					<h2>Some Python modules you'll want to look into</h2>
-					<pre><code data-trim contenteditable>
+					<h2>Secret sauce</h2>
+					<i>Use custom GUIDs (text) for tracking</i>
+					<pre>Python
+					<code data-trim contenteditable>
 import urllib
 import json
 from PIL import image
 from PIL.ExifTags import TAGS
 from base64 import decodestring
-
 					</code></pre>
-					
 				</section>
-
 
 			</div>
 
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.min.js"></script>
+		<script src="js/reveal.js"></script>
 
 		<script>
 
