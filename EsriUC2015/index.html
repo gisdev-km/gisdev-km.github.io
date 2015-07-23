@@ -1,0 +1,673 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>Speeding Up Transportation Planning Woes with GIS - WOOD RODGERS, INC</title>
+
+        <meta name="description" content="Speeding Up Transportation Planning Woes with GIS">
+        <meta name="author" content="Kyle Morgan, Nawid Nessar">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/sky.css" id="theme">
+
+        <!-- Code syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+
+        
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <section>
+                    <!-- 0 -->
+                    <section>
+                        <!-- 0-1 -->  
+                        <h1 style="font-size: 2.5em;">Speeding Up Transportation Planning Woes with GIS</h1>
+                        <p>
+                        <img src="images/WR_Logo_5InWide.png" class="customImage"><br> <img src="images/Esri_Silver.png" style="height: 100px;" class="customImage">
+                    </section>
+                    <section>
+                        Kyle Morgan <i>(<a href="mailto:kmorgan@woodrodgers.com">kmorgan@woodrodgers.com</a>)</i><br>
+                        GIS Developer, Wood Rodgers, Inc<br>
+                         <img src="images/twitter-logo.png" style="position: relative; top: 18px; height: 30px; border: 0px" class="customImage"> <a href="http://twitter.com/gisdev_km">@gisdev_km</a>
+                        <div style="height: 50px;">&nbsp;</div>                        
+                        <p></p>
+                        Nawid Nessar, P.E., T.E. <i>(<a href="mailto:nnessar@woodrodgers.com">nnessar@woodrodgers.com</a>)</i><br>
+                        Transportation Planner Engineer, Wood Rodgers, Inc
+                    </section>
+                </section>
+                <section>
+                <!-- 1 -->
+                <h2>What we'll cover</h2>
+                    <ul>
+                        <li>Some project background</li>
+                        <li>The software involved</li>
+                        <li>Traffic Analysis Zones</li>
+                        <li>Intersection Turning Movement Figures</li>
+                        <li>Value Added Deliverables</li>
+                        <li>Recap</li>
+                    </ul>
+                </section>
+                <!-- PROJECT OVERVIEW -->
+                <section>
+                    <section>
+                        <h2>Some project background</h2>
+                    </section>
+                <!-- 2 -->
+                    <section>
+                        <!-- 2-1 -->
+                        <h3>Marysville, CA</h3>
+                        <q cite="marysville">
+                            A small city of ~12,000 people, located about 40 miles north of Sacramento, CA.
+                            <p></p>
+                            The city experiences about <span class="fragment highlight-red">60,000</span> cars passing through its borders on a daily basis due to 4 highways converging at its center.
+                        </q>
+                    </section>
+                    <section>
+                        <h3>Alternatives</h3>
+                        The client tasked us with presenting existing conditions against the impacts of future growth (with and without proposed roadway changes). 
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <!-- 2-1 -->
+                        <h2>The software involved</h2>
+
+                    </section>
+                    <section>
+                        <!-- 2-2 -->
+                        <h3>Transportation Planning Software</h3>
+                        <ul>
+                            <li>CitiLabs Cube</li>
+                            <li>PTV VISSIM</li>
+                        </ul>
+                        <hr>
+                        <h3>GIS Software</h3>
+                        <ul>
+                            <li>Esri ArcGIS Desktop 10.2.2</li>
+                            <li>Python 2.7 32-bit</li>
+                        </ul>
+                        <hr style="width:75%">
+                        <h3>Misc. Software</h3>
+                        <ul>
+                            <li>Microsoft Excel</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <!-- 2-3 -->
+                        <h2>Citilabs Cube</h2>
+                    </section>
+                    <section>
+                        <!-- 2-4 -->
+                        <img src="images/CUBE.png" style="width: 85%;">
+                    </section>
+                    <!-- 8 -->
+                    <section>
+                        <!-- 2-5 -->
+                        <h2>PTV VISSIM</h2>
+                    </section>
+                    <section>
+                        <!-- 2-6 -->
+                        <img src="images/VISSIM.JPG" style="width: 90%;">
+                    </section>
+                </section>
+                <!-- TAZ  -->
+                <section>
+                    <!-- 3 -->
+                    <section>
+                        <!-- 3-1 -->
+                        <h2>Traffic Analysis Zones</h2>
+                    </section>
+                    <section>
+                        <!-- 3-2 -->
+                        <h3>By definition...</h3>
+                        <q cite="Traffic_analysis_zone">
+                           Traffic analysis zones are constructed by census block information. Typically these blocks are used in transportation models to store socio-economic data, including number of automobiles per household, household income, and employment within the zone. This information is used to estimate trips produced by and attracted to the zone.
+                        </q>
+                    </section>
+                    <section>
+                        <!-- 3-3 -->
+                        <h3>Which means...?</h3>
+                        <div class="fragment fade-in">
+                            <img src="images/Stimpy.gif" height="276" width="360"><br>
+                            <h3>Speak GIS to me!</h3>
+                        </div>
+                    </section>
+                    <section data-background="images/TAZ_Overview.jpg">
+                        <!-- 3-4 -->
+                        <div style="background-color: rgba(0, 0, 0, 0.7); color: #fff; padding: 20px;" class="current-visible">
+                            Marysville, CA
+                        </div>
+                    </section>
+                    <section data-background="images/TAZ_Overview.jpg">
+                        &nbsp;
+                        
+                        <!-- 3-5 -->
+                        <aside class="notes">
+                            The TAZ is used as a starting point to narrow down the data for use in Cube.
+                        </aside>
+                    </section>
+                    <section data-background="images/TAZ_With_SACSIM.jpg">
+                        <!-- 3-6 -->
+                        &nbsp;
+                    </section>
+                    <section>
+                        <!-- 3-7 -->
+                        <h3>Seems easy enough...</h3>
+                        <div class="fragment fade-in">
+                            Until one realizes that updating one parcel has a ripple effect;
+                            <p>
+                            Every parcel within two different buffer distances need to also be updated with the sum of their neighbors
+                            <aside class="notes">
+                                <ul>
+                                    <li>Parcel metrics need to be updated based on age of data and engineering judgement</li>
+                                    <li>Some of the metrics include '# of employed in household', '# of students', etc.</li>
+                            </aside>
+                        </div>
+                    </section>
+                    <section>
+                        <!-- 3-8 -->
+                        The client had previously provided a script but it ran terribly slow.
+                        <p></p>
+                        <div class="fragment fade-in"><span class="fragment highlight-red">4 days slow</span></div>
+                        <p></p>
+                        <div class="fragment fade-in">
+                            <q>And the window to start the models and have them finish on time was only 2 days away</q>
+                        </div>
+                        <img src="images/OMG.gif" class="fragment roll-in">
+                    </section>
+                    <section>
+                        <!-- 3-9 -->
+                        <h3>So, Kyle offered to help...</h3>
+                    </section>
+                    <section>
+                        <!-- 3-10 -->
+                        Reviewing the old code brought to light why it was time consuming…
+                    </section>
+                    <section>
+                        <!-- 3-11 -->
+                        GIS source data was stored in shapefiles
+                        <aside class="notes">
+                            (which means no indexes on the data)
+                            </aside>
+                    </section>
+                    <section>
+                        <!-- 3-12 -->
+                        Referenced old arcpy/gp SearchCursor
+                        <p></p>
+                        <aside class="notes">
+                            Instead of the new 'arcpy.da.SearchCursor'
+                        </aside>
+                    </section>
+                    <section>
+                        <!-- 3-13 -->
+                        Point summary was read into and out of Pickle Format
+                        <p></p>
+                        <aside class="notes">(Pickle = a Python module)</aside>
+                    </section>
+                    <section data-background="images/SACSIM_Overview_Blackout.jpg">
+                        <!-- 3-14 -->
+                        <div style="background-color: rgba(0, 0, 0, 0.7); color: #fff; padding: 20px;" class="current-visible">
+                            And it looped through entire dataset, updating EVERY point
+
+                            <aside class="notes">just shy of 690,000</aside>
+                        </div>
+                    </section>
+                    <section data-background="images/SACSIM_Overview.jpg">
+                        <!-- 3-15 -->
+                        &nbsp;
+                    </section>
+                    <section>
+                        <!-- 3-16 -->
+                        After about 4 hours of coding, testing and QC…
+                        <p></p>
+                        <h3 class="fragment fade-in">A solution appears!</h3>
+                    </section>
+                    <section>
+                        <!-- 3-17 -->
+                        Extremely fast (~30 seconds per updated parcel)
+                        <p></p>
+                        <aside class="notes">About 5 minutes for this particular task</aside>
+                    </section>
+                    <section>
+                        <!-- 3-18 -->
+                        Utilizes Esri's “in_memory” workspace and attribute indexes
+                    </section>
+                    <section>
+                        <!-- 3-19 -->
+                        Custom python classes
+                    </section>
+                    <section>
+                        <!-- 3-20 -->
+                        Customizable buffer distances (and units)
+
+                        <aside class="notes">
+                            Code limits dataset to max buffer distance * 2 + 10%
+                        </aside>
+                    </section>
+                    <section>
+                        <!-- 3-21 -->
+                        Uses Python's math.hypot with the centroid's XY to check buffer distances
+                        
+                        <aside class="notes">
+                            <ul>
+                                <li>No special extensions or elevated licenses required</li>
+                                <li>I haven't tested it against arcpy Geometry distanceTo()</li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <section data-background="images/TAZ_15SeedParcels.jpg">
+                        <!-- 3-22 -->
+                        <div style="background-color: rgba(0, 0, 0, 0.7); color: #fff; padding: 20px; position: absolute; bottom: 00px; left: 00px;" class="current-visible">
+                            15 updated parcels
+                        </div>
+                    </section>
+
+                    <section data-background="images/TAZ_1MileBuffer.jpg">
+                        &nbsp;
+                        <!-- 3-23 -->
+                        <aside class="notes">
+                            <ul>
+                                <li>Copies the points to in_memory</li>
+                                <li>Using arcpy.da.SearchCursor...</li>
+                                <li>Buffers the updated parcel by the max buffer 2x+10%</li>
+                                <li>Selects the parcels that intersect with the buffer</li>
+                                <li>And processes through the attributes of the selection set that meets the quarter and half-mile criteria</li>
+                                <li>And updates the data accordingly</li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <section data-background="images/TAZ_1MileBuffer.jpg">
+                        <!-- 3-24 -->
+                        <div style="background-color: rgba(0, 0, 0, 0.7); color: #fff; padding: 20px;" class="current-visible">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Color</th>
+                                        <th>Distance</th>
+                                        <th>Quantity</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span style="color: #FFE539">Yellow</span></td>
+                                        <td>Quarter Mile</td>
+                                        <td>865</td>
+                                    <tr>
+                                    <tr>
+                                        <td><span style="color: lawngreen">Green</span></td>
+                                        <td>Half Mile</td>
+                                        <td>1,280</td>
+                                    <tr>
+                                    <tr>
+                                        <td><span style="color: magenta">Purple</span></td>
+                                        <td>1.05 Mile</td>
+                                        <td>3,229</td>
+                                    <tr>
+                                    <tr>
+                                        <td colspan="3"><span style="font-size: 16pt;">Compared to running ~690,000 times</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </section>
+
+                <section>
+                    <!-- 5 -->
+                    <section>
+                        <!-- 5-1 -->
+                        <h2>Intersection Turning Movement Figures</h2>
+                    </section>
+                    <section>
+                        <!-- 5-1 -->
+                        <h3>By definition...</h3>
+                        <q cite="Traffic_analysis_zone">
+                            A way of quantifying vehicle movements through an intersection
+                        </q>
+                    </section>
+                    <section>
+                        <!-- 5-2 -->
+                        <h3>Which looks a little like...</h3>
+                        <img src="images/TM_Example.png" height="450" class="customImage fragment fade-in">
+                    </section>
+                </section>
+                <section>
+                    <!-- 6 -->
+                    <section>
+                        <!-- 6-1 -->
+                        <h2>Intersection Turning Movement Figures</h2>
+                        <h3>Old way of doing things...</h3>
+                    </section>
+                    <section>
+                        <!-- 6-2 -->
+                        A mixture of proprietary software and CAD
+                    </section>
+                    <section>
+                        <!-- 6-3 -- >
+                        The proprietary software will only run on Windows XP 
+                        <p></p>
+                        <q style="font-size: 14pt">(The software company is now out of business... <span class="fragment highlight-red">Software = end-of-life</span>)</q>
+                    </section>
+                    <section>
+                        <!-- 6-4 -->
+                        Any revisions were processed by hand
+                    </section>
+                    <section>
+                        <!-- 6-5 -->
+                        The final product has an outdated look and feel
+                    </section>
+                    <section>
+                        A single figure takes about an hour, before being QC'd or any revisions.
+                        <aside class="notes">
+                            For this particular task, there are 10 figures
+                        </aside>
+                    </section>
+                    <section>
+                        <!-- 6-6 -->
+                        <img src="images/TM_Old.png" height="511" width="790">
+                        <aside class="notes">
+                            <ul>
+                                <li>3 movements per approach, 4 approaches, 2 peak hour = 24</li>
+                                <li>43 intersections, 24 * 43 = 1,032 inputs</li>
+                                <li>10 scenarios * 1,032 = 10,320 manual inputs</li>
+                            </ul>
+                        </aside>
+                    </section>
+                </section>
+                <section>
+                    <!-- 7 -->
+                    <section>
+                        <!-- 7-1 -->
+                        <h2>Intersection Turning Movement Figures</h2>
+                        <h3>The <span class="fragment highlight-green">GIS</span> way</h3>
+                    </section>
+                    <section>
+                        <!-- 7-2 -->
+                        <table style="border: 0px solid black">
+                            <tr>
+                                <td style="text-align: center; vertical-align: middle">
+                                    <img src="images/TM_TextInput.png" class="customImage"><br>
+                                    <q>Text Input Files</q>
+                                </td>
+                                <td style="text-align: center; vertical-align: middle">
+                                    <img src="images/Arrow_Green.png" class="customImage" style="width: 400px;"><br>
+                                </td>
+                                <td style="text-align: center; vertical-align: middle">
+                                    <img src="images/TM_Multipage.png" class="customImage" ><br>
+                                    <q>Multi-page PDF</q>
+                                </td>
+                            </tr>
+                        </table>
+                    </section>
+                    <section data-background="images/Shia.gif">
+                    <!-- 7-3 -->
+&nbsp;
+                    </section>
+                    <section>
+                        <!-- 7-4 -->
+                        Everyone in this room...<br>
+                        <img src="images/Jerry.gif">
+
+                    </section>
+                    <section>
+                        <!-- 7-5 -->
+                        <h3>What actually happens...</h3>
+                        <img src="images/TM.png" class="customImage">
+                    </section>
+                    <section>
+                        <!-- 7-6 -->
+                        <img src="images/TM_TextInput.png" height="616" width="712">
+                    </section>
+                    <section data-transition="fade-out fade-in" data-transition-speed="fast">
+                        <!-- 7-7 -->
+                        <img src="images/TM_CSV_1.jpg" height="521" width="665">
+                    </section>
+
+                    <section data-background="images/CompassRose_Faded.jpg" >
+                        <!-- 7-8 -->
+                        <div style="background-color: rgba(0, 0, 0, 0.7); color: #fff; padding: 20px;" class="current-visible">
+                            Using GIS to estimate direction
+                        </div>
+                    </section>
+                    <section data-background="images/CompassRose.jpg" >
+                        <!-- 7-9 -->
+                        &nbsp;
+                    </section>
+                    <section data-background="images/CompassRose_2.jpg" >
+                        <!-- 7-10 -->
+                        &nbsp;
+                    </section>
+                    <section data-background="images/CompassRose_3.jpg" >
+                        <!-- 7-11 -->
+                        &nbsp;
+                    </section>
+                   <section data-background="images/CompassRose_4.jpg" >
+                        <!-- 7-12 -->
+                        &nbsp;
+                    </section>
+
+                    <section data-transition="fade-out fade-in" data-transition-speed="fast">
+                        <!-- 7-13 -->
+                        <img src="images/TM_CSV_2.jpg" height="521" width="665">
+                    </section>
+                    <section  data-transition="fade-out fade-in" data-transition-speed="fast">
+                        <!-- 7-14 -->
+                        <img src="images/TM_CSV_3.jpg" height="521" width="665">
+                    </section>
+                    
+                    
+
+
+
+
+                    <section>
+                        <!-- 7-16 -->
+                        <h3>Data logic</h3>
+                        The turning movement data had some validation checks that needed to be taken into account.
+                        <p>
+                        <q style="font-size: 14pt;">Each lane in each quadrant had up to 9 possible rules to check against.</q>
+                    </section>
+                    <section>
+                        <h2>A few of the 9 rules</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Color</th>
+                                    <th>Rule</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span style="color: #31CB1E">Green</span></td>
+                                    <td>Future value is lower than existing value</td>
+                                </tr>
+                                <tr>
+                                    <td><span style="color: #CB7B0D">Orange</span></td>
+                                    <td>Future value is higher than the allowable maximum value</td>
+                                </tr>
+                                <tr>
+                                    <td><span style="color: #BC22A7">Purple</span></td>
+                                    <td>Future value is zero and existing value is greater than zero</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                    
+
+                        <!-- 7-17
+                    <section>
+                        <h4>Flag (-) / Color: <span style="color: #1DFF2A">Green</span></h4>
+                        <pre><code data-trim contenteditable>
+Delta Value = Future 'No Project' (NP) Model Value – 
+                                     Existing 'No Project' Model Value
+
+Draft Value = Existing 'Observed' Value + Delta Value
+
+If (Minimum Bracket * Existing 'Observed' Value) > Draft Value:
+
+    Value = (Min Bracket * Existing 'Observed' Value) (-)
+
+                        </code></pre>
+                        <q style="font-size: 12pt;"><b>Definition:</b> When the value is lower than the calculated minimum allowed, the value is set to the calculated minimum.</q>
+                    </section> -->
+                        <!-- 7-18 
+                    <section>
+
+                        <h4>Flag ($) / Color: <span style="color: #1BC9CC">Cyan</span></h4>
+                        <pre><code data-trim contenteditable>
+If ((Model Phase Value - Model No Project Value) / 
+                                 Model No Project Value) &lt; -0.8:
+
+Value = (Final No Project * 0.2) ($)
+
+                        </code></pre>
+                        <q style="font-size: 12pt;"><b>Definition:</b> When ((Model Phase Value - Model No Project Value) / Model No Project Value) &lt; -0.8</q>
+                    </section>-->
+                    <section>
+                    <!-- 7-19 -->
+                        <video width="1000" controls data-autoplay loop>
+                          <source src="./images/Python.mp4" type="video/mp4">
+                          
+                            Your browser does not support the video tag.
+                        </video>
+                    </section>
+                    <section>
+                        <!-- 7-15 -->
+                        <img src="images/TM_Example.png" class="customImage" style="width: 50%">
+                        <aside class="notes">
+                        <ul>
+                            <li>Each "turn" had up to 9 logic checks to designate the flag (color) for assignment.</li>
+                            <li>Each direction has an AM and a PM peak value</li>
+                            <li>12 turn directions x 2 times (AM and PM) x 9 logic checks per turning movement (216 decisions per graphic)</li>
+                        </ul>
+                        </aside>
+                    </section>
+                    <section>
+                    <!-- 7-20 -->
+                        <img src="images/TM_Multipage.png">
+
+                        <aside class="notes">
+                            <li>x 49 turning movements (10,584 decisions) per exhibit</li>
+                            <li>x 3 phases (31,752 decisions)</li>
+                            <li>x 3 separate years (95,256 decisions)</li>
+                            <li>All in about 5 minutes</li>
+                        </aside>
+
+                    </section>
+                </section>
+ 
+                <section>
+                <!-- 9 -->
+                    <section>
+                      <!-- 9-1 -->
+                            <h2>Value-Added Deliverables</h2>
+                        
+                    </section>
+                    <section>
+                    <!-- 9-2 -->
+                        <video width="1000" controls data-autoplay loop>
+                          <source src="images/VISSIM.mp4" type="video/mp4">
+                          
+                            Your browser does not support the video tag.
+                        </video>
+                        <h4>VISSIM - Model exported to video</h4>
+                    </section>
+                    <section>
+                    <!-- 9-3 --> 
+                        <img src="images/TM_SpeedTable.png">
+                        <h4>Speed Tables (Formatted via Excel rules)</h4>
+                    </section>
+                    <section>
+                    <!-- 9-4 -->
+                        <video width="600" controls data-autoplay loop>
+                          <source src="images/FRE_Speed_Contour_2045_NP_PM.mp4" type="video/mp4">
+                          
+                            Your browser does not support the video tag.
+                        </video>
+                        <h4>Speed Contours (Temporal features in ArcGIS Desktop)</h4>
+                    </section>
+                </section>
+                <!-- Workflow -->
+                <section>
+                <!-- 10 -->
+                    <section>
+                    <h1>Recap</h1>
+                    </section>
+                    <section>
+                        <img src="images/transpo_workflow.png" style="box-shadow: none; background: transparent; border: 0px;">
+                    </section>
+                </section>
+                <section data-background-video="images/VISSIM.mp4" data-background-video-loop>
+                    <div style="background-color: rgba(0, 0, 0, 0.7); color: #fff; padding: 20px;" class="current-visible">
+                        <h1 style="color: #fff">Thanks!</h1>
+                        Kyle Morgan <i>(<a href="mailto:kmorgan@woodrodgers.com">kmorgan@woodrodgers.com</a>) <br> <img src="images/twitter-logo.png" style="position: relative; top: 18px; height: 40px; border: 0px" class="customImage"> <a href="http://twitter.com/gisdev_km">@gisdev_km</a></i><br>
+                        <div style="height: 50px;">&nbsp;</div>
+                        Nawid Nessar <i>(<a href="mailto:nnessar@woodrodgers.com">nnessar@woodrodgers.com</a>)</i><br>
+                        <p>
+                        http://gisdev-km.github.io/presentations/EsriUC_2015
+                    </div>
+
+                </section>
+
+
+            </div>
+
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+
+        <script>
+
+            // Full list of configuration options available at:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+
+                transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+                // Optional reveal.js plugins
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true },
+                    { src: 'plugin/notes/notes.js', async: true }
+                ]
+            });
+
+        </script>
+
+    </body>
+</html>
