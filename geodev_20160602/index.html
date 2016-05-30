@@ -1,0 +1,191 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>#Geodev - 06/02/2016 - Python with IIS?</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/league.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Python, Flask...</h1>
+					<h1 class="fragment fade-in">And IIS?</h1>
+					<h5 class="fragment fade-in">(Avoiding PHP one app at a time)</h5>
+
+					<p>
+						<small>
+						Kyle Morgan <i>(<a href="mailto:kmorgan@woodrodgers.com">kmorgan@woodrodgers.com</a>)</i><br> 
+						GIS DevOps, Wood Rodgers, Inc
+						<p>
+						<img src="images/twitter-logo.png" style="position: relative; top: -15px; height: 25px; border: 0px"> <a href="http://twitter.com/gisdev_km">@gisdev_km</a><br>
+						</small>
+					</p>
+				</section>
+				<section>
+					<section>
+						<h1>Some background</h1>
+					</section>
+					<section>
+						<blockquote>
+							&ldquo;At WRI, automation and simplification is key for our internal apps to succeed.  The easiest way to do this is via the web.&rdquo;
+						</blockquote>
+					</section>
+					<section>
+						<h2>But why?</h2>	
+						<ul>
+							<li class="fragment fade-in">Licensing</li>
+							<li class="fragment fade-in">Distribution</li>
+							<li class="fragment fade-in">Build Time and Cost</li>
+							<li class="fragment fade-in">Updates</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Typical GIS Shop</h2>
+						<ul>
+							<li>Microsoft Windows Server + IIS</li>
+							<li>
+								Limited server side technologies
+								<ul style="font-size: 0.75em; font-style: italic">
+									<li>.ASP</li>
+									<li>.ASPX</li>
+									<li>PHP (via Web Deploy)</li>
+								</ul>
+							</li>
+						</ul>
+					</section>
+					<section data-background="images/Sadness.gif"></section>
+				</section>
+				<section>
+					<section>
+						<h1>PHP was... <span class="fragment fade-in">okay</span></h1>
+					</section>
+					<section>
+						<h2>Until</h2>
+					</section>
+					<section>
+						<h2>Needed to have more advanced workflows</h2>
+						<img src="images/Monuments.png" width="65%">
+					</section>
+					<section>
+						<h2>Advanced parsing</h2>
+						<ul>
+							<li>XML</li>
+							<li>CSV</li>
+							<li>Text</li>
+							<li>JSON</li>
+						</ul>
+					</section>
+					<section data-background="images/angry.gif"><h2>Debugging</h2></section>
+						
+				</section>
+				<section>
+					<section>
+						<h1>Flask enters the picture!</h1>					
+						<img src="images/KoolAid.gif" width="50%">
+					</section>
+					<section>
+						<h1>Why I chose it</h1>
+					</section>
+					<section>
+						Very pythonic
+					</section>
+					<section>
+						Considered a micro-framework (compared to Django, Pyramid)
+					</section>
+					<section>
+						Easy to pick-up and create a web app
+					</section>
+					<section>
+						Lots of plugins
+					</section>
+					<section>
+						VirtualEnv's allow for sandboxing of installed modules
+					</section>					
+<section>
+						Decorators allow for custom route end-points can point to the same function!
+						
+<pre><code class="hljs">@app.route("/")
+@app.route("/index.html")
+@app.route("/hello-world")
+def returnIndex():
+	return "Hello world!"
+</code></pre>
+					</section>
+											
+
+					<section>
+						<h1>But on IIS?</h1>
+					</section>
+					<section>
+						<h1>You bet!</h1>
+					</section>
+					
+					<section>
+						Utilizes Microsoft's implementation of FastCGI
+					</section>
+					<section>
+						Allows for subprocess.Popen() to call scripts that incorporate the Esri arcpy module
+						<p></p>
+						<blockquote style="font-size: .6em" class="fragment fade-in"><span class="fragment highlight-red" style="font-weight:bold; font-color: red">Pro Tip:</span> Avoid importing arcpy directly into your Flask app.  When IIS starts up the app from a sleep state, it takes up to 30 seconds to import and initialize the module before returning anything to the browser.</blockquote>
+					</section>
+					<section>
+						With the appropriate permissions granted, can access the shares of an Active Directory network.
+					</section>
+				</section>
+				<section>	
+					<h1>How to get started?</h1>
+					<ul>
+						<li><a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world">Flask Mega-Tutorial</a></li>
+						<li><a href="http://netdot.co/2015/03/09/flask-on-iis/">Flask on IIS by James Polera</a>
+						<li>Reach out to me on Twitter or E-mail</li>
+					</ul>
+
+					<p>
+						<small>
+						Kyle Morgan <i>(<a href="mailto:kmorgan@woodrodgers.com">kmorgan@woodrodgers.com</a>)</i><br> 
+						GIS DevOps, Wood Rodgers, Inc
+						<p>
+						<img src="images/twitter-logo.png" style="position: relative; top: -15px; height: 25px; border: 0px"> <a href="http://twitter.com/gisdev_km">@gisdev_km</a><br>
+						</small>
+					</p>
+
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
