@@ -26,13 +26,13 @@
 			<div class="slides">
 				<section>
 					<h1>Python, Flask...</h1>
-					<h1 class="fragment fade-in">And IIS?</h1>
+					<h1 class="fragment fade-in">And ArcGIS Server/IIS?</h1>
 					<h5 class="fragment fade-in">(Avoiding PHP one app at a time)</h5>
 
 					<p>
 						<small>
 						Kyle Morgan <i>(<a href="mailto:kmorgan@woodrodgers.com">kmorgan@woodrodgers.com</a>)</i><br> 
-						GIS DevOps, Wood Rodgers, Inc
+						GIS DevOps Solution Architect, Wood Rodgers, Inc
 						<p>
 						<img src="images/twitter-logo.png" style="position: relative; top: -15px; height: 25px; border: 0px"> <a href="http://twitter.com/gisdev_km">@gisdev_km</a><br>
 						</small>
@@ -60,8 +60,8 @@
 						<h2>Typical GIS Shop</h2>
 						<ul>
 							<li>Microsoft Windows Server + IIS</li>
-							<li>
-								Limited server side technologies
+							<li>ArcGIS Server 10.3.1
+							<li>Limited server side programming choices
 								<ul style="font-size: 0.75em; font-style: italic">
 									<li>.ASP</li>
 									<li>.ASPX</li>
@@ -104,6 +104,12 @@
 						<h1>Why I chose it</h1>
 					</section>
 					<section>
+						ArcGIS Server ships with 64-bit Python!
+					</section>
+					<section>
+						VirtualEnv's allow for sandboxing of installed modules
+					</section>		
+					<section>
 						Very pythonic
 					</section>
 					<section>
@@ -116,10 +122,7 @@
 						Lots of plugins
 					</section>
 					<section>
-						VirtualEnv's allow for sandboxing of installed modules
-					</section>					
-<section>
-						Decorators allow for custom route end-points ​*that*​ can point to the same function!
+						Decorators allow for custom route end-points ​<b>that</b>​ can point to the same function!
 						
 <pre><code class="hljs">@app.route("/")
 @app.route("/index.html")
@@ -128,20 +131,17 @@ def returnIndex():
 	return "Hello world!"
 </code></pre>
 					</section>
-											
-
 					<section>
-						<h1>But on IIS?</h1>
+						<h1>But Python with IIS?</h1>
 					</section>
 					<section data-background="images/LunchLady.gif">
-
 						<h1>You bet!</h1>
-						</section>
+					</section>
 					<section>
 						Utilizes Microsoft's implementation of FastCGI
 					</section>
 					<section>
-						Allows for subprocess.Popen() to call scripts that incorporate the Esri arcpy module
+						Allows for subprocess.Popen() to call scripts that incorporate the Esri arcpy module for advanced processing
 						<p></p>
 						<blockquote style="font-size: .6em" class="fragment fade-in"><span class="fragment highlight-red" style="font-weight:bold; font-color: red">Pro Tip:</span> Avoid importing arcpy directly into your Flask app.  When IIS starts up the app from a sleep state, it takes up to 30 seconds to import and initialize the module before returning anything to the browser.</blockquote>
 					</section>
@@ -160,7 +160,7 @@ def returnIndex():
 					<p>
 						<small>
 						Kyle Morgan <i>(<a href="mailto:kmorgan@woodrodgers.com">kmorgan@woodrodgers.com</a>)</i><br> 
-						GIS DevOps, Wood Rodgers, Inc
+						GIS DevOps Solutions Architect, Wood Rodgers, Inc
 						<p>
 						<img src="images/twitter-logo.png" style="position: relative; top: -15px; height: 25px; border: 0px"> <a href="http://twitter.com/gisdev_km">@gisdev_km</a><br>
 						</small>
