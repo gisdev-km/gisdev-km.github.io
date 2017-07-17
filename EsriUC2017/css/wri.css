@@ -1,0 +1,51 @@
+body {
+    color: #fff !important;
+}
+
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6, .reveal {
+    color: #fff !important;
+}
+
+h1.small {
+    font-size: 2em !important;
+}
+
+.customImage {
+    border: 0 !important;
+    background: rgba(0, 0, 0, 0) !important;
+    box-shadow: none !important;
+}
+
+#sticky_logo {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    z-index: 20;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+#logo {
+    width: 240px;
+}
+
+.small_details {
+    margin-left: auto !important;
+    margin-right: auto  !important; 
+    width: 50%;
+    border: 0px solid blue !important;
+    font-size: 0.75em !important;
+}
+.small_details a {
+    color: #fff !important;
+}
+
+.reveal a {
+color: #ccc !important;
+}
+.reveal a:hover {
+    color: #2BD1C6 !important;
+}
+
+
+p.center { text-align: center; }

@@ -1,0 +1,479 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Automating Survey Workflows Across the Entire ArcGIS Platform - Wood Rodgers, Inc</title>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/sky.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Wood Rodgers, Inc - CSS Theme -->
+	<link rel="stylesheet" href="css/wri.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<!-- INTRODUCTION -->
+			<section data-background="images/background_oa.png">
+				<section data-state="first_slide" class="hide_logo">
+					<h1 class="small">Automating Survey Workflows Across the Entire ArcGIS Platform</h1>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						 ### Kyle Morgan
+						
+						<div class="small_details">
+							<span style="font-size: 0.8em;">GIS Developer @ <a href="http://www.woodrodgers.com" target="_new">Wood Rodgers, Inc.</a></span>
+							<p></p>
+							<small>
+								
+								<i class="fa fa-envelope" aria-hidden="true"></i> <a href="mailto:kmorgan@woodrodgers.com?subject=Esri UC 2017">kmorgan@woodrodgers.com</a> | <i class="fa fa-twitter-square" aria-hidden="true"></i> <a href="https://twitter.com/gisdev_km"  target="_new">@gisdev_km</a>
+							
+							</small>
+						</div>
+						</textarea>
+				</section>
+			</section>
+			<!-- THE WHAT -->
+			<section data-background="images/background_1.png">
+				<section data-markdown>
+					<textarea data-template>
+							## Some background
+						</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+							### Survey Dept
+						</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+							Distributed Survey Department<br>
+							<small>(3 offices in 2 states and growing)</small>
+						</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+							Team consists of Field Crews and Office personnel 
+						</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+							A need to streamline distribution of information immediately
+						</textarea>
+				</section>
+
+
+				<section data-markdown>
+					<textarea data-template>
+							### Typical project requirements
+						</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+							Official record of Survey
+						</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+							Photos of marker & surrounding area
+						</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+							Multiple format of deliverables
+						</textarea>
+				</section>
+
+			</section>
+			<!-- THE WHY -->
+			<section data-background="images/background_2.png">
+				<section data-markdown>
+					<textarea data-template>
+							## Historical approach
+						</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+							### A typical day
+						</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+							Field notes are handed in and scanned by office personnel <span class="fragment fade-up" style="color: red; font-style: italic;">(sometimes days late)</span>
+						</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+							Scanned field notes are printed and shoved in a project binder <span class="fragment fade-up" style="color: red; font-style: italic;">(that may wander off)</span>
+						</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+							Office personnel try to keep track of attribute changes and revisions to field notes based on word of mouth
+						</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+							Photos are uploaded (usually painfully) to a sharing service (e.g. Box) or emailed from each mobile device to the Office PM
+						</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+							Office personnel download the photos to the appropriate project folder on the server by date
+						</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+							Photos are rotated and resized as needed
+						</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+							Any reports are generated using MS Word or Excel template
+						</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+							Data is converted to various deliverable formats (CAD or GIS)
+						</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+							When time to deliver, additional time is incurred to double check all work <span class="fragment fade-up" style="color: red; font-style: italic;">_(usually by hand)_</span>
+						</textarea>
+				</section>
+				<section>
+					<img src="images/Sadness.gif" style="width: 100%">
+				</section>
+
+
+			</section>
+			<section data-background="images/background_3.png">
+				<section data-markdown>
+					<textarea data-template>
+							## GIS approach
+						</textarea>
+				</section>
+				<section data-background-video="images/magic.mp4" class="hide_logo">
+
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+							### Behind the curtains
+
+							1. Hardware
+							2. Software
+							3. Automation
+
+						</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+							### Hardware (Field)
+
+							1. Trimble RTK Units
+							2. Apple iPhone
+
+						</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+							### Software
+							#### Field
+
+							1. Esri Collector for ArcGIS
+							2. Esri Survey123
+
+							----
+
+							#### Office
+							1. Esri ArcGIS Desktop
+							2. Esri ArcGIS Pro
+							3. Custom Web Interface
+
+						</textarea>
+				</section>
+
+				<section>
+					<img src="images/web_overview.png" style="width: 65%">
+				</section>
+
+
+				<section data-markdown>
+					<textarea data-template>
+							### Automation
+							#### Software
+							1. ArcGIS Online
+							2. ArcGIS for Server
+							3. ArcGIS For Portal
+							4. Python
+						</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+							### Automation
+							#### Deliverables
+							1. Monument Sheet _(PDF with photos)_
+							2. Overview Maps
+							3. Compiled PNEZD files
+							4. Esri File Geodatabase / Shapefiles
+							5. CAD Drawings
+						</textarea>
+				</section>
+			</section>
+			<section data-background="images/background_4.png">
+				<section data-markdown>
+					<textarea data-template>
+							## Field Walkthrough
+						</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+							Field crew finds / sets monuments traditionally
+						</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+							Using Survey123, records the relevant information on their mobile device
+						</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+							Field crew syncs with ArcGIS Online when it is convenient for them
+
+						</textarea>
+				</section>
+			</section>
+			<section data-background="images/background_2.png">
+				<section data-markdown>
+					<textarea data-template>
+							## Automation Walkthrough
+						</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+							An hourly scheduled tasks polls ArcGIS Online
+
+						</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+							Fresh data is downloaded and processed
+						</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+							E-mails are sent out to each survey project manager to review with links to each record.
+						</textarea>
+				</section>
+				<section>
+					<img src="images/emails.png" style="width: 65%">
+				</section>
+				<section>
+					<img src="images/web_overview_2.png" style="width: 65%">
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+							When a record is reviewed and approved, Monument Sheet PDFs are created in the appropriate folder by date, server-side.  
+							
+							_If a record is updated, the PDF is replaced with a new copy._
+						</textarea>
+				</section>
+				<section>
+					<img src="images/data_sheet.png" style="width: 50%">
+				</section>
+				<section>
+					<img src="images/folder_of_pdfs.png" style="width: 65%">
+				</section>
+
+
+				<section data-markdown>
+					<textarea data-template>
+							Coordinates from RTK unit are uploaded after post-processing by survey  office lead.
+
+						</textarea>
+				</section>
+
+
+				<section>
+					<img src="images/upload_csv.png" style="width: 75%">
+				</section>
+			</section>
+			<section data-background="images/background_3.png">
+				<section data-markdown>
+					<textarea data-template>
+							## Automation Magic
+						</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+							### ArcGIS for Server's Python instance
+
+							_Functionality is dependent on ArcGIS for Server license level_
+						</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+
+							### ArcGIS for Matrix Links
+
+
+							* [ArcGIS Enterprise 10.5](http://www.esri.com/library/brochures/pdfs/arcgis-enterprise-functionality-matrix.pdf)
+							* [ArcGIS for Server 10.4](http://www.esri.com/software/arcgis/arcgisserver/~/media/Files/Pdfs/library/brochures/pdfs/arcgis-server-functionality-matrix.pdf)
+
+							<p class="center">_Google "ArcGIS Server [version] matrix"_</p>
+
+						</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+							### arcpy [Data Access Module](http://desktop.arcgis.com/en/arcmap/10.3/analyze/arcpy-data-access/what-is-the-data-access-module-.htm)
+
+							<p class="center">_E.g. Search, Update, Insert Cursors_</p>
+						</textarea>
+				</section>
+				<section>
+					<img src="images/arcpy_da.png" style="width: 65%">
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+							### arcpy [Mapping Module](http://desktop.arcgis.com/en/arcmap/10.3/analyze/arcpy-mapping/introduction-to-arcpy-mapping.htm)
+
+							<p class="center">_MXD Template Interface_</p>
+							
+						</textarea>
+				</section>
+				<section>
+					<img src="images/arcpy_mapping.png" style="width: 65%">
+				</section>
+
+
+				<section data-markdown>
+					<textarea data-template>
+							## 3rd Party Python Modules
+						</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+							### Requests
+
+							<p class="center"><a href="http://docs.python-requests.org/" target="_new">http://docs.python-requests.org</a></p>
+						</textarea>
+				</section>
+
+				<section>
+					<img src="images/requests.png" style="width: 65%">
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+							### Pillow
+
+							<p class="center"><a href="https://python-pillow.org/" target="_new">https://python-pillow.org</a></p>
+						</textarea>
+				</section>
+
+				<section>
+					<img src="images/pillow.png" style="width: 65%">
+				</section>
+
+
+
+
+			</section>
+			
+			<section data-background="images/background_4.png">
+				<section data-markdown>
+						<textarea data-template>
+							## Future Plans
+						</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+							Migrate from ArcGIS Online to on-premise
+
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						Integrate with other departments
+					</textarea>
+				</section>
+			</section>
+			<section data-background="images/background_5.png">
+				<section data-markdown    class="hide_logo">
+					<textarea data-template>
+						## Bonus Content
+
+						* ArcGIS for Portal Maps
+						* Daily Summary Reports
+						</textarea>
+				</section>
+				<section   class="hide_logo">
+					<img src="images/portal.png" style="width: 65%">
+				</section>
+				<section data-markdown   class="hide_logo">
+					<textarea data-template>
+						 ### Kyle Morgan
+						
+						<div class="small_details">
+							<span style="font-size: 0.8em;">GIS Developer @ <a href="http://www.woodrodgers.com" target="_new">Wood Rodgers, Inc.</a></span>
+							<p></p>
+							<small>
+								
+								<i class="fa fa-envelope" aria-hidden="true"></i> <a href="mailto:kmorgan@woodrodgers.com?subject=Esri UC 2017">kmorgan@woodrodgers.com</a> | <i class="fa fa-twitter-square" aria-hidden="true"></i> <a href="https://twitter.com/gisdev_km" target="_new">@gisdev_km</a>
+							
+							</small>
+						</div>
+						</textarea>
+				</section>
+			</section>
+		</div>
+	</div>
+	<div id="sticky_logo" style="visibility: hidden;"><img id="logo" src="images/WRI_Logo_300dpi.png" class="customImage"> <img src="images/Esri_Silver.png" style="height: 50px;"
+		 class="customImage"></div>
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+	</script>
+	<script src="js/wri.js"></script>
+</body>
+
+</html>
