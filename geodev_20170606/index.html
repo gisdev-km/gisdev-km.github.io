@@ -1,0 +1,225 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Advanced GP Publishing & Maintenance</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/blood.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<section data-markdown>
+						<textarea data-template>
+							# <span style="font-size: 0.5em;">Advanced ArcGIS Server GP Publishing & Maintenance</span>
+						</textarea>
+					</section>
+					
+					<section data-markdown>
+						<textarea data-template>
+						 ### Kyle Morgan
+						
+						<div class="small_details">
+							<span style="font-size: 0.8em;">GIS Developer @ <a href="http://www.woodrodgers.com" target="_new">Wood Rodgers, Inc.</a></span>
+							<p></p>
+							<small>
+								
+								<i class="fa fa-envelope" aria-hidden="true"></i> <a href="mailto:kmorgan@woodrodgers.com?subject=Esri UC 2017">kmorgan@woodrodgers.com</a> | <i class="fa fa-twitter-square" aria-hidden="true"></i> <a href="https://twitter.com/gisdev_km">@gisdev_km</a>
+							
+							</small>
+						</div>
+						</textarea>
+					</section>
+				</section>
+				<section>
+					<section data-markdown>
+						<textarea data-template>
+							# Why this topic?
+							<img src="images/why.gif">
+						</textarea>
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+							#### Highlight the power of Geoprocessing Tools
+							<div class="fragment current-visible">
+								<small>_or_ <br> `"How to get the most distance out of your server license"`</small><br>
+								<img src="images/JeanLucPicardLaugh.gif">
+							</div>
+						</textarea>
+					</section>
+				</section>
+				<section>
+					<section data-markdown>
+						<textarea data-template>
+							# Software
+
+							* Esri ArcGIS Server
+							* Esri ArcGIS Desktop
+							* Python <br>
+							<small>(Rec. IDE's: PyCharm, Wingware | Rec. Editors: Visual Studio Code, Sublime Text Editor, Atom)</small>
+						</textarea>
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+							# When to create a GP tool?
+						</textarea>
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+							1. When your workflow can be automated
+							2. When your data sources are locked down
+							3. When your workflow takes several minutes and requires elevated licensing<br>
+							4. Need to run it both on the Desktop and in a Web Application<br>
+							<div class="fragment current-visible">
+							<div style="width: 100%; text-align: center; font-weight: bold;">=</div>
+							<h3>A Perfect time for a GP Tool \* </h3>
+							<small>_* ArcGIS Server GP capabilities depend on license level (Standard or Advanced)_</small>
+							</div>
+						</textarea>
+					</section>
+				</section>
+				<section>
+					<section data-markdown>
+						<textarea data-template>
+							# Step 1
+							## Write your tool using Python
+						</textarea>
+					</section>
+					<section>
+						<img src="images/geodev0.png" style="height: 600px">
+					</section>
+				</section>
+				<section>
+					<section data-markdown>
+						<textarea data-template>
+							# Step 2
+							## Test your tool using ArcMap
+						</textarea>
+					</section>
+					
+					<section>
+						<img src="images/geodev1.png" style="height: 600px">
+					</section>
+					<section>
+						<img src="images/geodev2.png" style="height: 250px">
+						<img src="images/geodev2.1.png">
+					</section>
+					<section>
+						<img src="images/geodev3.png" style="height: 600px">
+					</section>
+					<section>
+						<img src="images/geodev4.png" style="height: 600px">
+					</section>
+					<section>
+						<img src="images/geodev5.png" style="height: 600px">
+					</section>
+					<section>
+						<img src="images/geodev5.5.png">
+					</section>
+					<section>
+						<img src="images/geodev5.6.png" style="height: 600px;">
+					</section>
+				</section>
+				<section>
+					<section data-markdown>
+						<textarea data-template>
+							# Step 3
+							## Publish the Tool
+						</textarea>
+					</section>					
+					<section>
+						<img src="images/geodev6.png" style="height: 400px">
+					</section>
+					<section>
+						<img src="images/geodev7.png"  style="height: 600px">
+					</section>					
+					<section>
+						<img src="images/geodev8.png"  style="height: 600px">
+					</section>		
+				</section>
+				<section>
+					<section data-markdown>
+						<textarea data-template>
+							# Step 4
+							## Sprinkle in the Advanced
+						</textarea>
+					</section>		
+					<section>
+						<img src="images/geodev9.png"  style="height: 400px">
+					</section>									
+					<section>
+						<img src="images/geodev10.png"  style="height: 600px">
+					</section>						
+					<section>
+						<img src="images/geodev11.png"  style="height: 600px">
+					</section>						
+					<section>
+						<img src="images/geodev12.png"  style="height: 400px">
+					</section>						
+					<section data-markdown>
+						<textarea data-template>
+
+						### Edit
+
+						<img src="images/geodev13.png"><br>
+						vs<br>
+						<img src="images/geodev13.1.png"><br>
+						</textarea>
+					</section>						
+					
+
+					<section>
+						<img src="images/geodev14.png" style="height: 650px;">
+					</section>						
+
+				</section>
+
+				<section data-markdown>
+						<textarea data-template>
+						## Server Matrices
+						
+						* [ArcGIS 10.4 for Server](http://links.esri.com/esri-arcgis_server_product_functionality_matrix)
+						* [ArcGIS Enterprise 10.5](http://links.esri.com/enterprise_matrix)
+						
+						</textarea>
+					</section>
+				
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
